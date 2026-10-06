@@ -1,0 +1,16 @@
+[project]
+name = "polars-2.0-benchmark"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "datafusion",
+    "duckdb",
+    "polars",
+    "tpcgen-cli",
+]
+
+[tool.uv]
+package = false
+
+[tool.uv.sources]
+tpcgen-cli = { git = "https://github.com/datafusion-contrib/tpcgen-rs", subdirectory = "tpcgen-cli" }

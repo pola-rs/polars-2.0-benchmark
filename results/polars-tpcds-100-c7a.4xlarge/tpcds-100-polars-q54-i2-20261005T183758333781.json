@@ -1,0 +1,53 @@
+{
+  "tag": "polars-tpcds-100-c7a.4xlarge",
+  "benchmark": "tpcds",
+  "scale_factor": "100",
+  "engine": "polars",
+  "polars_engine": "streaming",
+  "mode": "hot",
+  "isolation": "process",
+  "threads_requested": null,
+  "timeout_s": 60.0,
+  "environment": {
+    "hostname": "ip-172-31-4-166",
+    "os": "Linux-7.0.0-1011-aws-x86_64-with-glibc2.39",
+    "kernel": "7.0.0-1011-aws",
+    "cpu_model": "AMD EPYC 9R14",
+    "cpu_count": 16,
+    "total_memory_bytes": 32903778304,
+    "python_version": "3.12.3",
+    "argv": [
+      "bench.py",
+      "tpcds",
+      "100",
+      "--engine",
+      "polars",
+      "--iters",
+      "5",
+      "--timeout",
+      "60",
+      "--tag",
+      "polars-tpcds-100-c7a.4xlarge"
+    ],
+    "uv_lock_sha256": "7f30e08e001a00a1664eb555a41d134739987d8ad0ece83cb186871f0059ba04"
+  },
+  "query": "q54",
+  "iteration": 2,
+  "engine_version": "2.0.0-rc.2",
+  "engine_build": "<unknown>",
+  "engine_binary": "/home/orlp/programming/rust/polars-profile/py-polars/runtime/polars-runtime-32/_polars_runtime_32/_polars_runtime.abi3.so",
+  "polars_build_info": {
+    "version": "2.0.0-rc.2"
+  },
+  "threads_used": 16,
+  "warmup": false,
+  "timestamp_start": "2026-10-05T18:37:57.997871+00:00",
+  "status": "ok",
+  "error": null,
+  "wall_time_s": 0.33540548800010583,
+  "user_cpu_s": 3.7427770000000002,
+  "sys_cpu_s": 0.4786079999999999,
+  "max_rss_bytes": 572616704,
+  "result_rows": 100,
+  "result_hash": "e2a73583dfb77707"
+}
