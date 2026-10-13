@@ -242,6 +242,24 @@ def run_query(engine, sql, tables, opts, warmup, iters, args):
         yield from measured_runs(measurements(engine, sql, tables, opts, warmup, iters), iters)
         return
 
+    # A timeout kills the process, so the remaining iterations continue in a fresh
+    # one. Its setup is redone outside of timing, but not the warmup run: the fs cache
+    # is already warm.
+    done = 0
+    while done < iters:
+        for label, res in run_process(engine, sql, tables, opts, warmup, iters - done, args):
+            if label != "warmup":
+                label += done
+            yield label, res
+        if res["status"] != "timeout":
+            return
+        if label != "warmup":
+            done = label
+        warmup = 0
+
+
+def run_process(engine, sql, tables, opts, warmup, iters, args):
+    """Runs one query in a fresh process, yields (label, result) per finished run."""
     ctx = multiprocessing.get_context("spawn")
     results = ctx.Queue()
     proc = ctx.Process(target=measure, args=(engine, sql, tables, opts, warmup, iters, results))
@@ -264,12 +282,13 @@ def query_runs(engine, sql, tables, opts, args):
         yield from run_query(engine, sql, tables, opts, 1, args.iters, args)
         return
     # Cold: clear the fs cache before every run (each in a fresh process unless
-    # --isolation none), stopping at the first failure like hot mode.
+    # --isolation none), stopping at the first failure other than a timeout like
+    # hot mode.
     for i in range(1, args.iters + 1):
         drop_caches()
         for _, res in run_query(engine, sql, tables, opts, 0, 1, args):
             yield i, res
-        if res["status"] != "ok":
+        if res["status"] not in ("ok", "timeout"):
             return
 
 
