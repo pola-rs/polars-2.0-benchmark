@@ -1,0 +1,53 @@
+{
+  "tag": "polars-tpch-100-m8id.metal",
+  "benchmark": "tpch",
+  "scale_factor": "100",
+  "engine": "polars",
+  "polars_engine": "streaming",
+  "mode": "hot",
+  "isolation": "process",
+  "threads_requested": null,
+  "timeout_s": 60.0,
+  "environment": {
+    "hostname": "ip-172-31-4-166",
+    "os": "Linux-7.0.0-1011-aws-x86_64-with-glibc2.39",
+    "kernel": "7.0.0-1011-aws",
+    "cpu_model": "Intel(R) Xeon(R) 6975P-C",
+    "cpu_count": 384,
+    "total_memory_bytes": 1622949150720,
+    "python_version": "3.12.3",
+    "argv": [
+      "bench.py",
+      "tpch",
+      "100",
+      "--engine",
+      "polars",
+      "--iters",
+      "5",
+      "--timeout",
+      "60",
+      "--tag",
+      "polars-tpch-100-m8id.metal"
+    ],
+    "uv_lock_sha256": "4b8cb3122fc1d6a383fe6c79ee042d8ab1bfeabd39ef11b6ee4d5c10323cd251"
+  },
+  "query": "q08",
+  "iteration": 1,
+  "engine_version": "2.0.0",
+  "engine_build": "22a147de3d2bb2e44b97338a2510816c7105c9f2",
+  "engine_binary": "/home/orlp/programming/rust/polars-2.0-benchmark/.venv/lib/python3.12/site-packages/_polars_runtime_32/_polars_runtime.abi3.so",
+  "polars_build_info": {
+    "version": "2.0.0"
+  },
+  "threads_used": 384,
+  "warmup": false,
+  "timestamp_start": "2026-10-12T11:05:15.845698+00:00",
+  "status": "ok",
+  "error": null,
+  "wall_time_s": 0.7827868550002677,
+  "user_cpu_s": 99.000319,
+  "sys_cpu_s": 19.431614000000003,
+  "max_rss_bytes": 3556966400,
+  "result_rows": 2,
+  "result_hash": "44f1d5e9cc045512"
+}

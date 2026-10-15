@@ -1,0 +1,53 @@
+{
+  "tag": "polars-tpch-100-vera",
+  "benchmark": "tpch",
+  "scale_factor": "100",
+  "engine": "polars",
+  "polars_engine": "streaming",
+  "mode": "hot",
+  "isolation": "process",
+  "threads_requested": null,
+  "timeout_s": 60.0,
+  "environment": {
+    "hostname": "ipp8-d15-c2-vera-1",
+    "os": "Linux-6.17.0-1029-nvidia-64k-aarch64-with-glibc2.43",
+    "kernel": "6.17.0-1029-nvidia-64k",
+    "cpu_model": null,
+    "cpu_count": 352,
+    "total_memory_bytes": 1583563407360,
+    "python_version": "3.14.4",
+    "argv": [
+      "bench.py",
+      "tpch",
+      "100",
+      "--engine",
+      "polars",
+      "--iters",
+      "5",
+      "--timeout",
+      "60",
+      "--tag",
+      "polars-tpch-100-vera"
+    ],
+    "uv_lock_sha256": "4b8cb3122fc1d6a383fe6c79ee042d8ab1bfeabd39ef11b6ee4d5c10323cd251"
+  },
+  "query": "q20",
+  "iteration": 5,
+  "engine_version": "2.0.0",
+  "engine_build": "22a147de3d2bb2e44b97338a2510816c7105c9f2",
+  "engine_binary": "/home/polars/programming/rust/polars-2.0-benchmark/.venv/lib/python3.14/site-packages/_polars_runtime_32/_polars_runtime.abi3.so",
+  "polars_build_info": {
+    "version": "2.0.0"
+  },
+  "threads_used": 352,
+  "warmup": false,
+  "timestamp_start": "2026-10-08T08:51:16.200067+00:00",
+  "status": "ok",
+  "error": null,
+  "wall_time_s": 0.3993989779992262,
+  "user_cpu_s": 64.83879200000001,
+  "sys_cpu_s": 4.2739329999999995,
+  "max_rss_bytes": 2202927104,
+  "result_rows": 17971,
+  "result_hash": "6c77294cda68b246"
+}
